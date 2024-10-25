@@ -1,9 +1,16 @@
 # option_type
 A Generic Option Result Type
 
-This works by the fact that an unconstrained variant record can be replaced by setting all record components using an aggregate. An unconstrained variant record is one with a default value *AND* not initialised such as is the case with the procedures out parameter below.
+This works by the fact that an unconstrained variant record can be replaced by setting all record components using an aggregate. An unconstrained variant record is one with a default value (in option.ads)
 
+
+```option.ads
+type Result (Output_Available : Boolean := False) is record
 ```
+
+*AND* not initialised such as is the case with the procedures out parameter below.
+
+```usage.ads
 with Option;
 package Status is
   type Code is
