@@ -1,7 +1,7 @@
 # option_type
 A Generic Option Result Type
 
-This works by the fact that an unconstrained variant record can be replaced by setting all record components using an aggregate. An unconstrained variant record is one with a deafult value *AND* not initialised such as is the case with the procedures out parameter below.
+This works by the fact that an unconstrained variant record can be replaced by setting all record components using an aggregate. An unconstrained variant record is one with a default value *AND* not initialised such as is the case with the procedures out parameter below.
 
 ```
 with Option;
