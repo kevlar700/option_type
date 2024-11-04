@@ -1,5 +1,5 @@
 generic
-   type Status_Code is limited prrivate;
+   type Status_Code is limited private;
    type Item is limited private;
 package Option is
 
