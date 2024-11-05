@@ -5,7 +5,7 @@ generic
    type Item is limited private;
 package Options is
 
-   type Output (Output_Available : Boolean := True) is record
+   type Output (Output_Available : Boolean := False) is record
       --  Status : Status_Code;
       case Output_Available is
          when True =>
