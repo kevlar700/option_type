@@ -43,15 +43,18 @@ begin
   Sensor_Result := Status.Temporary_Failure;
   --  or
   Sensor_Result := Status.Temporary_Failure;
-  --  or even
+  --  You can also replace it multiple times if it makes sense to so
+  --  so long as the entire record is set (below) or replaced by a
+  --  record copy (not shown)
+  Sensor_Output :=
+    (Output_Available -> False);
+  Sensor_Result := Status.Temporary_Failure;
+  --  ... attempt some recovery stuff
   Sensor_Output :=
     (Output_Available => True,
      Output => Readings);
   Sensor_Result := Status.OK;
-  --  ... do some other stuff
-  Sensor_Output :=
-    (Output_Available -> False);
-  Sensor_Result := Status.Temporary_Failure;
+
 end Get_Humidity;
 
 ``` 
