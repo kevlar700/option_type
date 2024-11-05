@@ -4,14 +4,14 @@ A Generic Option Result Type
 This works by the fact that an unconstrained variant record can be replaced by setting all record components using an aggregate. An unconstrained variant record is one with a default value (in option.ads)
 
 
-```option.ads
-type Result (Output_Available : Boolean := False) is record
+```options.ads
+type Output (Output_Available : Boolean := False) is record
 ```
 
 *AND* not initialised such as is the case with the procedures out parameter below.
 
 ```usage.ads
-with Option;
+with Options;
 package Status is
   type Code is
     (OK,
@@ -23,22 +23,24 @@ type Data is record
   Humidity : Integer;
 end record; 
 
-package Result is new Option
-  (Status_Code => Status.Code,
-   Item => Data);
+package Option is new Options
+  (Item => Data);
 
-procedure Get_Humidity (Sensor_Result : out Result) is
+procedure Get_Humidity
+ (Sensor_Result : out Status.Code;
+  Sensor_Output : out Option.Output)
+is
   Readings : Data;
 begin
   Readings.Humidity := 50;
-  Result :=
+  Sensor_Output :=
     (Output_Available => True,
-     Status => Status.OK,
      Output => Readings);
+  Sensor_Result := Status.OK;
   --  or
-  Result :=
-    (Output_Available -> False,
-     Status => Status.Temporary_Failure);
+  Sensor_Output :=
+    (Output_Available -> False);
+  Sensor_Result := Status.Temporary_Failure;
 end Get_Humidity; 
 
 ``` 
