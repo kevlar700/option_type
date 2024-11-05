@@ -53,4 +53,5 @@ end Get_Humidity;
   Sensor_Output :=
     (Output_Available -> False);
   Sensor_Result := Status.Temporary_Failure;
+
 ``` 
