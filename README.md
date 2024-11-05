@@ -37,13 +37,16 @@ begin
     (Output_Available => True,
      Output => Readings);
   Sensor_Result := Status.OK;
+
   --  or
   Sensor_Output :=
     (Output_Available -> False);
   Sensor_Result := Status.Temporary_Failure;
+
   --  or
   Sensor_Result := Status.Temporary_Failure;
-  --  You can also replace it multiple times if it makes sense to so
+
+  --  or you can also replace it multiple times if it makes sense to
   --  so long as the entire record is set (below) or replaced by a
   --  record copy (not shown)
   Sensor_Output :=
