@@ -1,5 +1,5 @@
 # option_type
-A Generic Option Result Type
+A Generic Option Result Type (Mutant discriminated record)
 
 This works by the fact that an unconstrained variant record can be replaced by setting all record components using an aggregate. An unconstrained variant record is one with a default value (in option.ads)
 
