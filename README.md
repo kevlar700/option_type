@@ -41,6 +41,16 @@ begin
   Sensor_Output :=
     (Output_Available -> False);
   Sensor_Result := Status.Temporary_Failure;
-end Get_Humidity; 
-
+  --  or
+  Sensor_Result := Status.Temporary_Failure;
+end Get_Humidity;
+  --  or even
+  Sensor_Output :=
+    (Output_Available => True,
+     Output => Readings);
+  Sensor_Result := Status.OK;
+  --  ... do seome other stuff
+  Sensor_Output :=
+    (Output_Available -> False);
+  Sensor_Result := Status.Temporary_Failure;
 ``` 
